@@ -1,0 +1,135 @@
+\newpage
+\chapter{基本结构}
+\thispagestyle{fancy}
+\section{集合}
+\subsection{幂集}
+\begin{formal}
+\begin{definition}[幂集的定义]\label{def:幂集的定义}
+    设集合$S$,则$S$的幂集是由$S$的所有子集构成的集合,记作$2^S$或$\powerset{S}$.
+\end{definition}
+\end{formal}
+\begin{formal}
+    \begin{theorem}[幂集的大小]\label{thm:幂集的大小}
+        \[
+        \#\left(
+        \powerset{S}
+        \right)=2^{\#S}
+        \]
+    \end{theorem}
+\end{formal}
+\begin{formal}
+    \begin{theorem}[幂集的相等与集合的相等]\label{thm:幂集的相等与集合的相等}
+        设集合$S$和$T$,则$S=T$当且仅当$\powerset{S}=\powerset{T}$.
+    \end{theorem}
+\end{formal}
+\subsection{真值集和量词}
+\begin{formal}
+    \begin{definition}[全称量化与存在量化]\label{def:全称量化与存在量化}
+        设谓词$P(x)$和集合$S$,则\begin{enumerate}[label={\textup{(\arabic*)}}]
+            \item $\forall x\in S\left(
+                P\left(x\right)
+            \right)$表示$P\left(x\right)$在集合$S$上的全称量化即是$\forall x\left(
+                x\in S\rightarrow P\left(x\right)
+            \right)$的简记
+            \item $\exists x\in S\left(
+                P\left(x\right)
+            \right)$表示$P\left(x\right)$在集合$S$上的存在量化即是$\exists x\left(
+                x\in S\wedge P\left(x\right)
+            \right)$的简记
+        \end{enumerate}
+    \end{definition}
+\end{formal}
+\begin{brown}
+\begin{example}
+    $\forall x\in\bb{R}\left(
+        x^2\geqslant0
+    \right)$声称对于任意实数$x$,都有$x^2\geqslant0$,这是真的.$\exists x\in\bb{Z}\left(
+        x^2=1
+    \right)$声称存在整数$x$使得$x^2=1$,这也是真的.
+\end{example}
+\end{brown}
+\begin{formal}
+    \begin{definition}[真值集的定义]\label{def:真值集的定义}
+        给定谓词$P$和论域$D$,则$P\left(x\right)$的真值集为\[
+        \left\{
+            x\in D\mid P\left(x\right)
+        \right\}
+        \]
+    \end{definition}
+\end{formal}
+\begin{brown}
+    \begin{example}
+        $R\left(x\right)=\left|x\right|=x$的真值集为$\bb{N}$.
+    \end{example}
+\end{brown}
+\subsection{多重集}
+\begin{formal}
+    \begin{definition}[多重集的定义]\label{def:多重集的定义}
+        设$S$是一个包含有重复元素的集合，记作\[
+        \left\{
+            a_1,a_1,\cdots,a_1;a_2,a_2,\cdots,a_2;\cdots;a_r,a_r,\cdots,a_r
+        \right\}
+        \]或者\[
+        m_1\cdot a_1,m_2\cdot a_2,\cdots,m_r\cdot a_r
+        \]其中$m_i$是$a_i$的重复数（不在集合中的元素的重复数为$0$）.
+    \end{definition}
+\end{formal}
+\begin{formal}
+    \begin{proposition}[多重集的运算]\label{prop:多重集的运算}
+        设多重集$P=\left\{
+            m_1\cdot a_1,m_2\cdot a_2,\cdots,m_r\cdot a_r
+        \right\}$和$Q=\left\{
+            n_1\cdot a_1,n_2\cdot a_2,\cdots,n_r\cdot a_r
+        \right\}$,则\begin{enumerate}[label={\textup{(\arabic*)}}]
+            \item $
+            P\cup Q=\left\{
+                \max\left(
+                    m_1,n_1
+                \right)\cdot a_1,\max\left(
+                    m_2,n_2
+                \right)\cdot a_2,\cdots,\max\left(
+                    m_r,n_r
+                \right)\cdot a_r
+            \right\}
+            $
+            \item $
+            P\cap Q=\left\{
+                \min\left(
+                    m_1,n_1
+                \right)\cdot a_1,\min\left(
+                    m_2,n_2
+                \right)\cdot a_2,\cdots,\min\left(
+                    m_r,n_r
+                \right)\cdot a_r
+            \right\}
+            $
+            \item $ 
+            P-Q=\left\{
+                \max\left(
+                    m_1-n_1,0
+                \right)\cdot a_1,\max\left(
+                    m_2-n_2,0
+                \right)\cdot a_2,\cdots,\max\left(
+                    m_r-n_r,0
+                \right)\cdot a_r
+            \right\}
+            $
+            \item $
+            P+Q=\left\{
+                \left(
+                    m_1+n_1
+                \right)\cdot a_1,\left(
+                    m_2+n_2
+                \right)\cdot a_2,\cdots,\left(
+                    m_r+n_r
+                \right)\cdot a_r
+            \right\}
+            $
+        \end{enumerate}
+    \end{proposition}
+\end{formal}
+\begin{red}
+\begin{remark}
+    从\cref{prop:多重集的运算}可以看出，多重集的和在普通集合中退化为集合的并.
+\end{remark}
+\end{red}
